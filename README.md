@@ -1,24 +1,11 @@
-# our-japan-life
+# Find a Doc
 
-## Project setup
-```
-yarn install
-```
+## Demo  
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+https://findadocjp.herokuapp.com
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Database Schema
 
-### Lints and fixes files
-```
-yarn lint
-```
+The `ourjapanlife` database currently consists of one table that follows the schema below:  
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![table schema](./src/assets/doctors.jpg)

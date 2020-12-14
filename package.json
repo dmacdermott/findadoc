@@ -6,12 +6,14 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "node server.js",
-    "hack:start": "nodemon server.js"
+    "start": "node ./server/app.js",
+    "hack:start": "nodemon ./server/app.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
+    "knex": "^0.21.13",
     "nodemon": "^2.0.6",
     "pg": "^8.5.1",
     "serve-static": "^1.14.1",
