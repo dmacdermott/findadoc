@@ -37,13 +37,3 @@ Here are some of the features we'd like to include in the first release of the c
 3. Add additional languages
 4. Improve accessibility  
 5. Google Maps Integration  
-
-## Demo  
-
-https://findadocjp.herokuapp.com
-
-## Database Schema
-
-The `ourjapanlife` database currently consists of one table that follows the schema below:  
-
-![table schema](./src/assets/doctors.jpg)
