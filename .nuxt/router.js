@@ -4,7 +4,11 @@ import { normalizeURL, decode } from '@nuxt/ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _0969a225 = () => interopDefault(import('../pages/blog.vue' /* webpackChunkName: "pages/blog" */))
+const _6284fc04 = () => interopDefault(import('../pages/database.vue' /* webpackChunkName: "pages/database" */))
 const _f490fc14 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _1de89a14 = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
+const _09f198a6 = () => interopDefault(import('../pages/settings.vue' /* webpackChunkName: "pages/settings" */))
 const _7d92a9db = () => interopDefault(import('../pages/signup.vue' /* webpackChunkName: "pages/signup" */))
 const _87e04242 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -25,9 +29,25 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/blog",
+    component: _0969a225,
+    name: "blog"
+  }, {
+    path: "/database",
+    component: _6284fc04,
+    name: "database"
+  }, {
     path: "/login",
     component: _f490fc14,
     name: "login"
+  }, {
+    path: "/profile",
+    component: _1de89a14,
+    name: "profile"
+  }, {
+    path: "/settings",
+    component: _09f198a6,
+    name: "settings"
   }, {
     path: "/signup",
     component: _7d92a9db,

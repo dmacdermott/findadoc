@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    Main
+    Blog
   </div>
 </template>
 
