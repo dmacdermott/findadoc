@@ -13,7 +13,7 @@
           Sign up for a new account
         </h2>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST">
+      <form class="mt-8 space-y-6" action="#" method="POST" @submit.prevent="pressed">
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
@@ -48,6 +48,7 @@
 
         <div>
           <button
+          
             type="submit"
             class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
@@ -76,6 +77,13 @@
 </template>
 
 <script>
+import firebase from 'firebase/app';
+
+// Add the Firebase services that you want to use
+import "firebase/auth";
+// import "firebase/firestore";
+
+
 export default {
   data() {
     return {
@@ -86,9 +94,12 @@ export default {
   },
   methods: {
     pressed(){
+      // firebase.initializeApp();
+      alert("SIGNING UP");
+      console.log('hello')
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(user => {
         console.log(user);
-        this.$router.push('/account')
+        this.$router.push('/')
       }).catch(error => {
         this.errors = error;
       })
