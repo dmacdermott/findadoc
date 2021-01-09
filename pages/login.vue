@@ -10,7 +10,7 @@
           alt="Workflow"
         />
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Sign in to your account
+          Log in to your account
         </h2>
       </div>
       <form class="mt-8 space-y-6" action="#" method="POST">
@@ -86,7 +86,7 @@
                 />
               </svg>
             </span>
-            Sign in
+            Log in
           </button>
         </div>
       </form>
