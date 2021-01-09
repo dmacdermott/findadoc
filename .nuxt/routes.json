@@ -1,9 +1,20 @@
 [
   {
+    "name": "login",
+    "path": "/login",
+    "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/login.vue",
+    "chunkName": "pages/login"
+  },
+  {
+    "name": "signup",
+    "path": "/signup",
+    "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/signup.vue",
+    "chunkName": "pages/signup"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_87e04242"
+    "chunkName": "pages/index"
   }
 ]

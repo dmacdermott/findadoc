@@ -1,10 +1,20 @@
 <template>
   <div>
+    <Header />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
 <style>
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  text-align: center;
+}
 html {
   font-family:
     'Source Sans Pro',
@@ -59,4 +69,5 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
 </style>
