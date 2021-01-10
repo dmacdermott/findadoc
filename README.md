@@ -2,6 +2,12 @@
 
 Find A Doc is an open-source project aimed at creating a database of doctors that speak multiple languages in Japan. Foreign residents living in Japan sometimes find it difficult to communicate their medical needs in Japanese, or would feel more comfortable doing so in their native language. Find A Doc is an initiative to help connect residents with doctors that they can communicate more easily with.
 
+## Demo
+
+Here you can preview the current status of the project:
+
+https://findadoc-bc230.firebaseapp.com
+
 ## How to Contribute
 
 Anyone can contribute to the project, even if they don't know how to code! Please check the list below to see what features we could use your help with.
