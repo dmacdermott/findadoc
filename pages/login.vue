@@ -13,7 +13,7 @@
           Log in to your account
         </h2>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST" @submit.prevent="pressed">
+      <form class="mt-8 space-y-6" action="#" method="POST" @submit.prevent>
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
@@ -26,7 +26,7 @@
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Email address"
-              v-model="email"
+              v-model="account.email"
             />
           </div>
           <div>
@@ -39,7 +39,7 @@
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Password"
-              v-model="password"
+              v-model="account.password"
             />
           </div>
         </div>
@@ -47,6 +47,7 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <input
+              @click="rememberUser"
               id="remember_me"
               name="remember_me"
               type="checkbox"
@@ -69,6 +70,7 @@
 
         <div>
           <button
+            @click="login"
             type="submit"
             class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
@@ -97,28 +99,49 @@
 </template>
 
 <script>
-import firebase from 'firebase/app';
+import firebase from "firebase/app";
 import "firebase/auth";
 
 export default {
-  data() {
-    return {
-      email: '',
-      password: '',
-      errors: ''
-    }
-  },
+  data: () => ({
+    account: {
+      email: "",
+      password: "",
+      expires: "",
+    },
+    isError: false,
+    errMsg: "",
+  }),
   methods: {
-    pressed(){
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-.then(user => {
-        console.log(user);
-        this.$router.push('/')
-      }).catch(error => {
-        this.errors = error;
-      })
-    }
-  }
+    login() {
+      this.$store.dispatch("admin/login", this.account).catch((error) => {
+        console.log(error);
+        this.isError = true;
+        this.errMsg = error.code;
+        setTimeout(() => {
+          this.isError = false;
+        }, 5000);
+      });
+      this.$router.push("/");
+    },
+    showPassword() {
+      const togglePassword = document.getElementById("user-password");
+      if (togglePassword.type === "password") {
+        togglePassword.type = "text";
+      } else {
+        togglePassword.type = "password";
+      }
+    },
+    rememberUser() {
+      const checkBox = document.getElementById("remember_me");
+
+      if (checkBox.checked === true) {
+        this.account.expires = 7;
+      } else {
+        this.account.expires = "";
+      }
+    },
+  },
 };
 </script>
 

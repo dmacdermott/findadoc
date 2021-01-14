@@ -1,5 +1,12 @@
 [
   {
+    "name": "admin",
+    "path": "/admin",
+    "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/admin/index.vue",
+    "chunkName": "pages/admin/index",
+    "_name": "_1379245f"
+  },
+  {
     "name": "blog",
     "path": "/blog",
     "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/blog.vue",
@@ -21,25 +28,25 @@
     "_name": "_f490fc14"
   },
   {
-    "name": "profile",
-    "path": "/profile",
-    "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/profile.vue",
-    "chunkName": "pages/profile",
-    "_name": "_1de89a14"
-  },
-  {
-    "name": "settings",
-    "path": "/settings",
-    "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/settings.vue",
-    "chunkName": "pages/settings",
-    "_name": "_09f198a6"
-  },
-  {
     "name": "signup",
     "path": "/signup",
     "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/signup.vue",
     "chunkName": "pages/signup",
     "_name": "_7d92a9db"
+  },
+  {
+    "name": "admin-profile",
+    "path": "/admin/profile",
+    "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/admin/profile.vue",
+    "chunkName": "pages/admin/profile",
+    "_name": "_13399876"
+  },
+  {
+    "name": "admin-settings",
+    "path": "/admin/settings",
+    "component": "/Users/lashawnsomerville/Documents/Personal/our-japan-life/pages/admin/settings.vue",
+    "chunkName": "pages/admin/settings",
+    "_name": "_2d806326"
   },
   {
     "name": "index",

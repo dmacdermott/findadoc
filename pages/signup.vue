@@ -26,7 +26,7 @@
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Email address"
-              v-model="email"
+              v-model="account.email"
             />
           </div>
           <div>
@@ -39,7 +39,7 @@
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Password"
-              v-model="password"
+              v-model="account.password"
             />
           </div>
         </div>
@@ -83,20 +83,29 @@ import "firebase/auth";
 export default {
   data() {
     return {
-      email: '',
-      password: '',
-      errors: ''
-    }
+      account: {
+        email: "",
+        password: "",
+      },
+    };
   },
   methods: {
     pressed(){
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(user => {
-        console.log(user);
-        this.$router.push('/')
+      firebase.auth().createUserWithEmailAndPassword(this.account.email, this.account.password).then(user => {
+        // console.log(user);
+        this.$router.push('/login')
       }).catch(error => {
         this.errors = error;
       })
-    }
+    },
+        showPassword() {
+      const togglePassword = document.getElementById("create-password");
+      if (togglePassword.type === "password") {
+        togglePassword.type = "text";
+      } else {
+        togglePassword.type = "password";
+      }
+    },
   }
 };
 </script>

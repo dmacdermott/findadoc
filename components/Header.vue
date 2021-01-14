@@ -73,22 +73,22 @@
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <nuxt-link
-                to="database"
+                to="/database"
                 class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                 >Database</nuxt-link
               >
               <nuxt-link
-                to="blog"
+                to="/blog"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >Blog</nuxt-link
               >
               <nuxt-link
-                to="signup"
+                to="/signup"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >Sign up</nuxt-link
               >
               <nuxt-link
-                to="login"
+                to="/login"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >Log in</nuxt-link
               >
@@ -119,24 +119,24 @@
               />
             </svg>
           </button>
-
-          <!-- Profile dropdown -->
-          <div v-on:click="isActive = !isActive" class="ml-3 relative">
-            <div>
-              <button
-                class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                id="user-menu"
-                aria-haspopup="true"
-              >
-                <span class="sr-only">Open user menu</span>
-                <img
-                  class="h-8 w-8 rounded-full"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                />
-              </button>
-            </div>
-            <!--           
+          <div v-if="this.$store.state.admin.user !== null">
+            <!-- Profile dropdown -->
+            <div v-on:click="isActive = !isActive" class="ml-3 relative">
+              <div>
+                <button
+                  class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  id="user-menu"
+                  aria-haspopup="true"
+                >
+                  <span class="sr-only">Open user menu</span>
+                  <img
+                    class="h-8 w-8 rounded-full"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <!--           
             Profile dropdown panel, show/hide based on dropdown state.
 
             Entering: "transition ease-out duration-100"
@@ -146,33 +146,33 @@
               From: "transform opacity-100 scale-100"
               To: "transform opacity-0 scale-95"
           -->
-            <div
-              v-show="isActive"
-              class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="user-menu"
-            >
-              <nuxt-link
-                to="/profile"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                role="menuitem"
-                >Your Profile</nuxt-link
+              <div
+                v-show="isActive"
+                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="user-menu"
               >
-              <nuxt-link
-                to="/settings"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                role="menuitem"
-                >Settings</nuxt-link
-              >
-              <div @click.prevent="signOut">
-
-              <nuxt-link
-                to="/"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                role="menuitem"
-                >Log out</nuxt-link
-              >
+                <nuxt-link
+                  to="/admin/profile"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  role="menuitem"
+                  >Your Profile</nuxt-link
+                >
+                <nuxt-link
+                  to="/admin/settings"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  role="menuitem"
+                  >Settings</nuxt-link
+                >
+                <div @click.prevent="logout">
+                  <nuxt-link
+                    to="/"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                    >Log out</nuxt-link
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -214,8 +214,9 @@
 </template>
 
 <script>
-import firebase from 'firebase/app';
+import firebase from "firebase/app";
 import "firebase/auth";
+import Cookie from 'js-cookie'
 
 export default {
   data() {
@@ -224,16 +225,10 @@ export default {
     };
   },
   methods: {
-    signOut() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          alert("Sign-out successful")
-        })
-        .catch((error) => {
-          // An error happened.
-        });
+    async logout() {
+      await firebase.auth().signOut();
+      await Cookie.remove("access_token");
+      location.href = "/";
     },
   },
 };

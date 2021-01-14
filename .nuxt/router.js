@@ -4,12 +4,13 @@ import { normalizeURL, decode } from '@nuxt/ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _1379245f = () => interopDefault(import('../pages/admin/index.vue' /* webpackChunkName: "pages/admin/index" */))
 const _0969a225 = () => interopDefault(import('../pages/blog.vue' /* webpackChunkName: "pages/blog" */))
 const _6284fc04 = () => interopDefault(import('../pages/database.vue' /* webpackChunkName: "pages/database" */))
 const _f490fc14 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
-const _1de89a14 = () => interopDefault(import('../pages/profile.vue' /* webpackChunkName: "pages/profile" */))
-const _09f198a6 = () => interopDefault(import('../pages/settings.vue' /* webpackChunkName: "pages/settings" */))
 const _7d92a9db = () => interopDefault(import('../pages/signup.vue' /* webpackChunkName: "pages/signup" */))
+const _13399876 = () => interopDefault(import('../pages/admin/profile.vue' /* webpackChunkName: "pages/admin/profile" */))
+const _2d806326 = () => interopDefault(import('../pages/admin/settings.vue' /* webpackChunkName: "pages/admin/settings" */))
 const _87e04242 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
@@ -29,6 +30,10 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/admin",
+    component: _1379245f,
+    name: "admin"
+  }, {
     path: "/blog",
     component: _0969a225,
     name: "blog"
@@ -41,17 +46,17 @@ export const routerOptions = {
     component: _f490fc14,
     name: "login"
   }, {
-    path: "/profile",
-    component: _1de89a14,
-    name: "profile"
-  }, {
-    path: "/settings",
-    component: _09f198a6,
-    name: "settings"
-  }, {
     path: "/signup",
     component: _7d92a9db,
     name: "signup"
+  }, {
+    path: "/admin/profile",
+    component: _13399876,
+    name: "admin-profile"
+  }, {
+    path: "/admin/settings",
+    component: _2d806326,
+    name: "admin-settings"
   }, {
     path: "/",
     component: _87e04242,
