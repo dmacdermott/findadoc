@@ -1,9 +1,9 @@
 <template>
   <!-- This example requires Tailwind CSS v2.0+ -->
   <nav class="bg-gray-800">
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="mx-auto w-screen px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <div class="absolute inset-y-0 left-4 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <button
             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -69,7 +69,7 @@
               alt="Workflow"
             />
           </div>
-          <div class="hidden sm:block sm:ml-6">
+          <div class="hidden sm:block sm:ml-6 md:absolute md:right-0">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <nuxt-link
@@ -82,7 +82,10 @@
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >Blog</nuxt-link
               >
-              <div class="flex space-x-4" v-if="this.$store.state.admin.user === null">
+              <div
+                class="flex space-x-4"
+                v-if="this.$store.state.admin.user === null"
+              >
                 <nuxt-link
                   to="/signup"
                   class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
