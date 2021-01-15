@@ -4,14 +4,14 @@ import { normalizeURL, decode } from '@nuxt/ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _1379245f = () => interopDefault(import('../pages/admin/index.vue' /* webpackChunkName: "pages/admin/index" */))
-const _0969a225 = () => interopDefault(import('../pages/blog.vue' /* webpackChunkName: "pages/blog" */))
-const _6284fc04 = () => interopDefault(import('../pages/database.vue' /* webpackChunkName: "pages/database" */))
-const _f490fc14 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
-const _7d92a9db = () => interopDefault(import('../pages/signup.vue' /* webpackChunkName: "pages/signup" */))
-const _13399876 = () => interopDefault(import('../pages/admin/profile.vue' /* webpackChunkName: "pages/admin/profile" */))
-const _2d806326 = () => interopDefault(import('../pages/admin/settings.vue' /* webpackChunkName: "pages/admin/settings" */))
-const _87e04242 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _7488fab2 = () => interopDefault(import('../pages/admin/index.vue' /* webpackChunkName: "pages/admin/index" */))
+const _0dbbf332 = () => interopDefault(import('../pages/blog.vue' /* webpackChunkName: "pages/blog" */))
+const _5f92f6ea = () => interopDefault(import('../pages/database.vue' /* webpackChunkName: "pages/database" */))
+const _0baf5289 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _92d628b0 = () => interopDefault(import('../pages/signup.vue' /* webpackChunkName: "pages/signup" */))
+const _6fad2609 = () => interopDefault(import('../pages/admin/profile.vue' /* webpackChunkName: "pages/admin/profile" */))
+const _5f7e87f3 = () => interopDefault(import('../pages/admin/settings.vue' /* webpackChunkName: "pages/admin/settings" */))
+const _4207af72 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -31,35 +31,35 @@ export const routerOptions = {
 
   routes: [{
     path: "/admin",
-    component: _1379245f,
+    component: _7488fab2,
     name: "admin"
   }, {
     path: "/blog",
-    component: _0969a225,
+    component: _0dbbf332,
     name: "blog"
   }, {
     path: "/database",
-    component: _6284fc04,
+    component: _5f92f6ea,
     name: "database"
   }, {
     path: "/login",
-    component: _f490fc14,
+    component: _0baf5289,
     name: "login"
   }, {
     path: "/signup",
-    component: _7d92a9db,
+    component: _92d628b0,
     name: "signup"
   }, {
     path: "/admin/profile",
-    component: _13399876,
+    component: _6fad2609,
     name: "admin-profile"
   }, {
     path: "/admin/settings",
-    component: _2d806326,
+    component: _5f7e87f3,
     name: "admin-settings"
   }, {
     path: "/",
-    component: _87e04242,
+    component: _4207af72,
     name: "index"
   }],
 
